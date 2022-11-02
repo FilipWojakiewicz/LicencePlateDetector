@@ -1,0 +1,27 @@
+{% for image in images %}
+<div class="col-lg-6 col-md-8 col-12">
+            <img class="img-fluid img-thumbnail" src="data:image/PNG;base64,{{image}}"  alt="">
+    </div>
+{% endfor %}
+<p>{{recognized_text}}</p>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Odczyt rejestracji {{database[0][1]}}</th>
+      <th scope="col">Data odczytu (łącznie: {{database|length}})</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in database %}
+    <tr>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]|formatdatetime}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+

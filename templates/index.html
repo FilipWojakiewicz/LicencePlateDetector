@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container d-flex">
+
+  <div class="row text-center text-lg-left">
+{% for hist in hists %}
+    <div class="col-lg-3 col-md-4 col-6">
+      <button  class="d-block mb-4 h-100 imageButton" value="{{hist}}">
+            <img class="img-fluid img-thumbnail" src="{{url_for('static', filename=path+hist)}}" alt="">
+          </button>
+    </div>
+    {% endfor %}
+  </div>
+    <div id="response" class="col-sm-6 d-flex flex-column align-items-center">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Odczyt rejestracji</th>
+      <th scope="col">Data odczytu</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in database %}
+    <tr>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]|formatdatetime}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
