@@ -31,6 +31,8 @@ def test_results(license_plate_recognition):
         real = filename.split('.')[0]
         if real == plates:
             correct_idx += 1
+        else:
+            print(filename)
 
     print(f'Correct : {correct_idx} out of : {all_idx} percentage : {correct_idx / all_idx}')
 
